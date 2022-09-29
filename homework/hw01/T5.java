@@ -6,7 +6,7 @@ import java.util.*;
 
 public class T5 {
     public static void main(String[] args) throws FileNotFoundException {
-        Scanner in = new Scanner(new File("D:\\FakeC\\Java_Works\\assignment\\src\\com\\oop\\homework\\hw01\\zt4input.txt"));
+        Scanner in = new Scanner(new File("D:\\FakeC\\Java_Works\\assignment\\src\\com\\oop\\homework\\hw01\\zt5input.txt"));
         T5 solve = new T5();
         int[] cnt = new int[101];
         while (in.hasNext()) cnt[in.nextInt()]++;
@@ -20,10 +20,8 @@ public class T5 {
      * @param cnt the frequency table
      */
     public void printH(int[] cnt) {
-        for (int i = 0; i <= 100; i++) {
-            if (i % 10 == 9) printS(cnt, i - 9, i);
-            else if (i == 100) printS(cnt, 90, 100);
-        }
+        for (int i = 0; i <= 90; i++) if (i % 10 == 9) printS(cnt, i - 9, i);
+        printS(cnt, 90, 100);
     }
 
     /**
@@ -57,9 +55,8 @@ public class T5 {
             }
             System.out.println();
         }
-        for (int i = 0; i < 10; i++) {
-            System.out.printf(" %2d-%2d ", 10 * i, 10 * i + 9);
-        }
+        for (int i = 0; i < 9; i++) System.out.printf(" %2d-%2d ", 10 * i, 10 * i + 9);
+        System.out.printf(" %2d-%2d ", 90, 100);
     }
 
     /**
@@ -76,7 +73,7 @@ public class T5 {
 
         int h = 0, last = 0, st = 0;
         for (int i = 9; i <= 89; i += 10) {
-            int freq = i == 9 ? s[9] : s[i] - s[i - 9];
+            int freq = i == 9 ? s[9] : s[i] - s[i - 10];
             set[st++] = freq;
             h = Math.max(h, freq);
         }
