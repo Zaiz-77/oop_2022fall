@@ -60,7 +60,7 @@ public class T2 {
         million = million.equals("") ? million : million + " million";
         if (thousand.equals("")) {
             if (million.equals("")) thousand = "";
-            else thousand = " zero";
+            else if (!hundred.equals("")) thousand = " zero";
         } else thousand += " thousand";
         return (million + thousand + hundred).substring(1);
     }
