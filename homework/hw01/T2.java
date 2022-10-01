@@ -38,7 +38,7 @@ public class T2 {
      * @return the English string
      */
     public String getEnglish(int n) {
-        return n > 0 ? work(n) : "negative " + work(-n);
+        return n >= 0 ? work(n) : "negative " + work(-n);
     }
 
     /**
@@ -48,6 +48,7 @@ public class T2 {
      * @return Its English expression
      */
     private String work(int n) {
+        if (n == 0) return "zero";
         if (n >= 1 && n <= 9) return digits[n];
 
         char[] now = String.valueOf(n).toCharArray();
